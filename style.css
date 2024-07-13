@@ -15,6 +15,8 @@ body {
     padding: 30px;
     text-align: center;
 }
+
+
 .generate-btn{
     margin-top: 140px;
     width: 180px;
@@ -87,7 +89,7 @@ color: #E0B612;
     background: #495BC3;
     color: #fff;
 }
-.notify {
+.match {
     color: #fff;
     text-align: center;
     margin: 0 auto;
@@ -101,7 +103,6 @@ color: #E0B612;
 .notify-section{
     width: 35%;
     margin: 0 auto;
-   
 }
 .action-left {
     color: #FF3C5F;

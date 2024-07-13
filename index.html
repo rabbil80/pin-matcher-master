@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="pin-generator half-width">
                     <input class="form-control" type="text" id="generateNum">
-                    <button class="generate-btn" id="generateBtn" onclick="randomNumFun()">Generate Pin</button>
+                    <button class="generate-btn" id="generateBtn">Generate Pin</button>
                     <!-- <div class="restart"><button>Rester Pin</button></div> -->
                 </div>
             </div>
@@ -23,105 +23,38 @@
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
-                              <div class="button" id="7"onclick="keyBtn(7)">7</div>
-                              <div class="button"id="8"onclick="keyBtn(8)">8</div>
-                              <div class="button"id="9" onclick="keyBtn(9)">9</div>
+                              <div class="button">7</div>
+                              <div class="button">8</div>
+                              <div class="button" >9</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class="button"id="4" onclick="keyBtn(4)">4</div>
-                              <div class="button"id="5" onclick="keyBtn(5)">5</div>
-                              <div class="button"id="6" onclick="keyBtn(6)">6</div>
+                              <div class="button" >4</div>
+                              <div class="button" >5</div>
+                              <div class="button" >6</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class="button"id="1" onclick="keyBtn(1)">1</div>
-                              <div class="button"id="2" onclick="keyBtn(2)">2</div>
-                              <div class="button"id="3" onclick="keyBtn(3)">3</div>
+                              <div class="button" >1</div>
+                              <div class="button" >2</div>
+                              <div class="button" >3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" onclick="cleanLastBtn()" >&lt; </div>
-                                <div class="button"id="0" onclick="keyBtn(0)">0</div>
-                                <div class="button" onclick="clean()">C</div>
+                                <div class="button" >&lt; </div>
+                                <div class="button">0</div>
+                                <div class="button" >C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn" id="submit" onclick="submitBtn ()">Submit</button>
-                                <p class="action-left" id="tryBtn"> <span id="tryLeft">3</span> try left</p>
+                                <button type="submit" class="submit-btn">Submit</button>
+                                <p class="action-left" id="tryBtn"> <span>3</span> try left</p>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify" id="unmatched">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify" id="matched">✅ Pin Matched... Secret door is opening for you</p>
+           <p class="match" id="not-match">❌ Pin Didn't Match, Please try again</p>
+           <p class="match" id="match">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
-    <script>
-
-
-        function emptyValue(id){
-            document.getElementById(id).value = '';
-
-        }
-       function emptyText(id){
-        document.getElementById(id).innerText = '';
-       }
-
-
-       function displayNone(id){
-        document.getElementById(id).style.display = "none";
-       }
-
-       function displayBlock(id){
-        document.getElementById(id).style.display = "block";
-       }
-
-    function randomNumFun() {
-    let randomNum = Math.floor(1000 + Math.random() * 9000);
-    document.getElementById('generateNum').value = randomNum;
-
-    emptyValue('inputPin');
-     displayNone('matched');
-     displayNone('unmatched');
-}
-
-function keyBtn(id) {
-    let perValue = document.getElementById('inputPin').value;
-    let key = document.getElementById(id).innerHTML;
-    document.getElementById('inputPin').value = perValue + key;
-}
-
-function clean() {
-    document.getElementById('inputPin').value = '';
-}
-
-function cleanLastBtn() {
-    let inputResult = document.getElementById('inputPin').value;
-    let cleanValue = inputResult.slice(0, -1); 
-    document.getElementById('inputPin').value = cleanValue;
-}
-
-function submitBtn() {
-    let randomNum = document.getElementById('generateNum').value;
-    let typedNum = document.getElementById('inputPin').value;
-
-    if (randomNum == typedNum) {
-        displayBlock('matched');
-        displayNone('unmatched')
-    }
-    else{
-        displayBlock('unmatched');
-        displayNone('matched');
-        tryLeft('tryLeft');
-        
-    }
-}
-function tryLeft(isLeft){
-    let tryAgain = document.getElementById(isLeft).innerHTML;
-    document.getElementById(isLeft).innerHTML -= 1;
-}
-
-
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
