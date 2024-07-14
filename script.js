@@ -17,8 +17,10 @@ function generateRandomPin() {
 };
 
 pinGenerate.addEventListener('click', function () {
+    generateNum.value ='';
     generatePin = generateRandomPin();
     generateNum.value = generatePin;
+
 });
 
 buttons.forEach(button => {
@@ -37,13 +39,17 @@ buttons.forEach(button => {
 
 submitBtn.addEventListener('click', 
     function submitClick () {
+        generateNum.value = '';
+       
     if (inputPin.value === generatePin) {
         match.style.display ='block'
        notMatch.style.display = 'none'
+       inputPin.value = '';
     } 
     else{
         match.style.display ='none'
         notMatch.style.display = 'block'
+        inputPin.value = '';
         triesLeft--;
         if (triesLeft === 0) {
             submitBtn.disabled = true;
